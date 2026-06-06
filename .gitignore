@@ -1,5 +1,15 @@
- <<<<<<< HEAD
- ...
- =======
- ...
- >>>>>>> 3c63256481d4a84e3839940c3cb8e9a18fe01d3f
+  target/
+  .idea/
+  .vscode/
+
+  *.class
+  *.log
+  *.jar
+  *.war
+  *.ear
+  *.nar
+  *.zip
+  *.tar.gz
+  *.rar
+
+  .DS_Store
