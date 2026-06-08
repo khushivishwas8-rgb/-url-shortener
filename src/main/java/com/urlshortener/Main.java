@@ -1,30 +1,84 @@
 package com.urlshortener;
+import java.util.Scanner;
 
 
 public class Main {
-    static void main(String[]args) {
+   public  static void main(String[] args) {
 
-        // Instantiate our new controller/brain
-        URLShortener shortener = new URLShortener();
+        // to activate the old brain to work now
+        URLShortener Shortener = new URLShortener();
 
-        // Shorten two sample web addresses
-        String slug1 = shortener.shorten("https://google.com");
-        String slug2 = shortener.shorten("https://amazon.com");
+        // creating the scanner object
 
-       // print our the randomly generated slugs
-        System.out.println("Slug 1:"+ slug1);
-        System.out.println("Slug 2:"+ slug2);
+        Scanner sc = new Scanner(System.in);
 
-        // Test expanding them back to verify they match original values
-        System.out.println("Expanded 1: " + shortener.expand(slug1) );
-        System.out.println("Expanded 2:" +  shortener.expand(slug2) );
+        // wait for the user until they press enter and then return everything they typed in string
+       // String input = sc.nextLine();
 
-        // Test an invaild edge case
-        System.out.println(" Testing invalid slug:" +  shortener.expand("xxxx") );
+        // split
 
-        //List everything currently tracked in memory
-        System.out.println("\n---Listing All Store Pairs --- ");
+       // with a loop : raed continously
+        while (true) {
+           String input = sc.nextLine().trim();
 
+
+            // split
+
+            String[] parts = input.split(" ");
+            String command = parts[0].toLowerCase(); //first word
+            System.out.println(parts[0]);
+
+
+            if (input.equals("Quit")) {
+                break;  // exit the loop
+            }
+
+
+            //handle each comand
+            switch (command) {
+
+                case "shorten" -> {
+                    if (parts.length < 2) {
+                        System.out.println("shorten <url>");
+                    } else {
+                        String slug = Shortener.shorten(parts[1]);
+                        System.out.println("Shortened! Slug:" + slug);
+                    }
+                }
+
+                case "expand" -> {
+                    if (parts.length < 2) {
+                        System.out.print("Usage: exapnd <slug>");
+                    } else {
+                        String url = Shortener.expand(parts[1]);
+                        if (url != null) {
+                            System.out.println("URL:" + url);
+                        } else {
+                            System.out.println("Slug not found.");
+                        }
+                    }
+                }
+
+                case "list" -> {
+                    Shortener.listall();
+                }
+
+                case "quit" -> {
+                    System.out.println("Goodbye!");
+                    sc.close();
+                    return;
+                }
+
+                default -> {
+                    System.out.println("Unknown command. Try: shorten, expand,list,quit,default");
+                }
+            }
+
+
+            System.out.println(); //blank line between command
+
+
+        }
     }
 
 }
