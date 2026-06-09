@@ -33,7 +33,7 @@ public class URLShortener {
     }
 
     // 5.pass through method to list everything inside the store
-        public void listall(){
+        public void listAll(){
             store.listAll();
         }
     // 6. Helper method to build a random 6-Character String

@@ -26,7 +26,7 @@ public class Main {
 
             String[] parts = input.split(" ");
             String command = parts[0].toLowerCase(); //first word
-            System.out.println(parts[0]);
+
 
 
             if (input.equals("Quit")) {
@@ -60,7 +60,7 @@ public class Main {
                 }
 
                 case "list" -> {
-                    Shortener.listall();
+                    Shortener.listAll();
                 }
 
                 case "quit" -> {
