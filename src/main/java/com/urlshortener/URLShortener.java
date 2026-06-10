@@ -1,4 +1,5 @@
 package com.urlshortener;
+import java.util.Map;
 import java .util.Random;
 
 public class URLShortener {
@@ -45,5 +46,14 @@ public class URLShortener {
 
             }
         return sb.toString();
+    }
+
+    // get all dta - delegates to URLStore
+    public Map<String, String> getAll(){
+        return store.getAll();
+    }
+    //load dta - delegates to URLStore
+    public void loadAll(Map<String,String>data){
+        store.loadAll(data);
     }
 }

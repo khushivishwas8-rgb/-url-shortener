@@ -1,4 +1,5 @@
 package com.urlshortener;
+import java.util.Map;
 import java.util.Scanner;
 
 
@@ -7,10 +8,12 @@ public class Main {
 
         // to activate the old brain to work now
         URLShortener Shortener = new URLShortener();
+        //ADD THIS -- load saved URLs when  program starts
+       Map<String,String> saved = FileStorage.load();
+       Shortener.loadAll(saved);
 
         // creating the scanner object
-
-        Scanner sc = new Scanner(System.in);
+       Scanner sc = new Scanner(System.in);
 
         // wait for the user until they press enter and then return everything they typed in string
        // String input = sc.nextLine();
@@ -64,6 +67,7 @@ public class Main {
                 }
 
                 case "quit" -> {
+                    FileStorage.save(Shortener.getAll());
                     System.out.println("Goodbye!");
                     sc.close();
                     return;

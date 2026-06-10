@@ -6,9 +6,18 @@ public class URLStore {
     private final Map<String, String> store = new HashMap<>();
     public void save (String slug, String url){
         store.put(slug,url);
-
     }
-    public String get(String slug){
+    public Map<String,String>getAll(){
+        return store;
+    }
+
+    // load data from a map - used when loading from file
+    public void loadAll(Map<String,String> data){
+        store.putAll(data);
+    }
+
+
+   public String get(String slug){
         return store.get(slug);
     }
 public boolean contains(String slug){
