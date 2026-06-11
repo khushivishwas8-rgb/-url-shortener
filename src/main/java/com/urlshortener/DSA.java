@@ -37,6 +37,34 @@ System.out.println("Largest number is "+ largest2);
 
         System.out.println("sum is"+sum);
 
+// find the smallest thing:
+        int[]number3= {3, 7, 1, 9, 4}; // list of numbers
+        int smallest = number3 [0]; // considering the 1st number as the smallest number
+        for(int num:number3){  // looking at each number if the current number is smaller than 1st number
+            if(num<smallest){   // take the current number.
+                smallest = num; // update the smallest number
+            }
+
+        }
+        System.out.println("Smallest number is "+ smallest);
+// reverse the array
+        int[] arr = {1,2,3,4,5};
+        int i = 0; //start with 0 index
+        int j = arr.length-1;// last index of the array
+
+
+        while(i<j) {// ne to swap 1st with the last until we reach at the middle
+            int temp = arr[i];
+            arr[i]= arr[j];
+            arr[j] = temp;
+            i++;
+            --j;
+        }
+        //print reversed array;
+        for(int num:arr) {
+
+            System.out.print(num + " ");
+        }
 
     }
 }

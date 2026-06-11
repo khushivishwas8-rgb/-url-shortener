@@ -6,7 +6,7 @@ import java.util.Scanner;
 public class Main {
    public  static void main(String[] args) {
 
-        // to activate the old brain to work now
+
         URLShortener Shortener = new URLShortener();
         //ADD THIS -- load saved URLs when  program starts
        Map<String,String> saved = FileStorage.load();
