@@ -8,11 +8,13 @@ public class URLStore {
         store.put(slug,url);
     }
     public Map<String,String>getAll(){
+
         return store;
     }
 
     // load data from a map - used when loading from file
     public void loadAll(Map<String,String> data){
+
         store.putAll(data);
     }
 

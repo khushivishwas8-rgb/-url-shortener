@@ -44,9 +44,18 @@ public class Main {
                     if (parts.length < 2) {
                         System.out.println("shorten <url>");
                     } else {
-                        String slug = Shortener.shorten(parts[1]);
-                        System.out.println("Shortened! Slug:" + slug);
+
+                        // adding a new method to Validate the URL.
+                        String url = parts[1];
+                        if(  url.toLowerCase().startsWith("https://") || url.toLowerCase().startsWith("http://")){
+                           String  slug = Shortener.shorten(url);
+                            System.out.println("Shortened! slug:"+slug);
+
+                        } else{
+                            System.out.println("Invalid URL. Must start with https:// or http://");
+                        }
                     }
+
                 }
 
                 case "expand" -> {
